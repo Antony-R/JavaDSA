@@ -110,7 +110,7 @@ public class LinkedList {
 
 		Node prevNode = headNode.prev;
 		tail = headNode;
-		
+
 		while (headNode != null) {
 			Node nextNode = headNode.next;
 			headNode.next = prevNode;
