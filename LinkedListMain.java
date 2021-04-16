@@ -22,6 +22,13 @@ public class LinkedListMain {
 		list.showReverse();
 		
 		System.out.println("size: " + list.size);
+		
+		list.reverse(list.head);
+		System.out.println("=".repeat(20));
+		list.show();
+		
+		System.out.println("=".repeat(20));
+		list.showReverse();
 	}
 
 }
