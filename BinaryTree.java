@@ -1,5 +1,9 @@
 package binarytree;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Queue;
+
 public class BinaryTree {
 	
 	TreeNode root;
@@ -58,6 +62,68 @@ public class BinaryTree {
 			System.out.print(root.data + "-");
 			inOrder(root.right);
 	}
+	
+	public List<List<Integer>> levelOrder(TreeNode root) {
+		
+		List<List<Integer>> result = new ArrayList<>();
+		
+		if (root == null) return result;
+		
+		Queue<TreeNode> q = new java.util.LinkedList<>();
+		q.add(root);
+		
+		while (! q.isEmpty()) {
+			int size = q.size();
+			List<Integer> currentLevel = new ArrayList<>();
+			for (int i = 0; i < size; i++) {
+				TreeNode current = q.poll();
+				currentLevel.add(current.data);
+				
+				if (current.left != null) q.add(current.left);
+				if (current.right != null) q.add(current.right);
+			}
+			
+			result.add(currentLevel);
+		}
+		
+		return result;
+	
+	}
+	
+	public TreeNode invertTree (TreeNode root) {
+		
+		if (root == null) return root;
+		
+		TreeNode left = invertTree(root.left);
+		TreeNode right = invertTree(root.right);
+		
+		root.left = right;
+		root.right = left;
+		
+		return root;
+	}
+	
+	public int maxDepth (TreeNode root) {
+		
+		if (root == null) return 0; // To find the no of edges return -1
+		
+		int left = maxDepth(root.left);
+		int right = maxDepth(root.right);
+		
+		return Math.max(left, right) + 1;
+	}
+	
+	 public int minDepth(TreeNode root) {
+	        
+	        if (root == null) return 0;
+	        
+	        int leftHeight = minDepth(root.left);
+	        int rightHeight = minDepth(root.right);
+	        
+	        if (leftHeight == 0 || rightHeight == 0) return 1 + leftHeight + rightHeight;
+	        else return Math.min(leftHeight, rightHeight) + 1;
+	        
+	    }
 	
 	
 	

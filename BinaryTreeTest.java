@@ -14,6 +14,16 @@ public class BinaryTreeTest {
 		System.out.println();
 		
 		t.inOrder(root);
+		System.out.println();
+		
+		System.out.println(t.levelOrder(root));
+		
+		t.invertTree(root);
+		
+		System.out.println(t.levelOrder(root));
+		
+		System.out.println("Max-Depth: " + t.maxDepth(root));
+		System.out.println("Min-Depth: " + t.minDepth(root));
 	}
 
 }
