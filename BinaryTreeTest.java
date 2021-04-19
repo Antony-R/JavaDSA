@@ -24,6 +24,8 @@ public class BinaryTreeTest {
 		
 		System.out.println("Max-Depth: " + t.maxDepth(root));
 		System.out.println("Min-Depth: " + t.minDepth(root));
+		
+		System.out.println("Lowest common ancestor: " + t.lowestCommonAncestor(root, 5, 6).data);
 	}
 
 }

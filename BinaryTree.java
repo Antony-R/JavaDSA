@@ -124,6 +124,20 @@ public class BinaryTree {
 	        else return Math.min(leftHeight, rightHeight) + 1;
 	        
 	    }
+	 
+	 public TreeNode lowestCommonAncestor(TreeNode root, int p, int q) {
+	        
+	        if (root == null) return root;
+	        if (root.data == p || root.data == q) return root;
+	        
+	        TreeNode leftSearchResult = lowestCommonAncestor(root.left, p, q);
+	        TreeNode rightSearchResult = lowestCommonAncestor(root.right, p, q);
+	        
+	        if (leftSearchResult == null) return rightSearchResult;
+	        if (rightSearchResult == null) return leftSearchResult;
+	        
+	        return root;
+	    }
 	
 	
 	
